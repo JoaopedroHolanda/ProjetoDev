@@ -6,24 +6,39 @@
     <title>Encanamento - Clean House</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        .navbar {
-            background-color: #343a40; 
-        }
-
         .navbar-brand img {
             height: 50px;
             margin-right: 20px;
+        }
+        .navbar {
+           background-color: #025685;
+           color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff; 
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar bg-white">
-    <a class="navbar-brand" href="index.html">
-        <img src="./imagem/logo.png" alt="Clean House Logo">
-        Clean House
-    </a>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar">
+        <a class="navbar-brand" href="index.html">
+            <img src="./imagem/logo.png" alt="Clean House Logo">
+        </a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="login.html">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cadastro.html">Cadastrar</a>
+            </li>
+        </ul>
+    </nav>
 
 <div class="container mt-5">
     <div class="row">

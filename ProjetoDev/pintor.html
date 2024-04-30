@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços de Pintura - Clean House</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #025685;
+        }
+        .navbar .nav-link {
+            color: #fff; 
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #025685; /* Cor azul padrão do site */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #fff; 
+            color: #025685; 
+        }
+        .card {
+            box-shadow: 0 0 10px rgba(12, 216, 97, 0.1); 
+        }
+        .text-muted {
+            color: #fff; 
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar">
+    <a class="navbar-brand" href="index.html">
+        <img src="./imagem/logo.png" alt="Clean House Logo">
+    </a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="login.html">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="cadastro.html">Cadastrar</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h1 class="text-center mb-5">Serviços de Pintura</h1>
+            <div class="card mb-4">
+                <img src="https://source.unsplash.com/800x600/?painting" class="card-img-top" alt="Serviço de Pintura">
+                <div class="card-body">
+                    <h5 class="card-title">Pintura Residencial</h5>
+                    <p class="card-text">Nossos pintores profissionais transformarão sua casa com cores vibrantes e acabamentos de alta qualidade. Utilizamos apenas tintas de qualidade para garantir um resultado duradouro e satisfatório.</p>
+                    <p class="card-text">Preço: R$500,00</p>
+                    <p class="card-text">Desconto: 15% para pinturas de mais de 3 cômodos</p>
+                    <a href="detalhesServicos.html" class="btn btn-primary">Comprar</a>
+                    <p class="card-text"><small class="text-muted">Categoria: Pintura Residencial</small></p>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <img src="https://source.unsplash.com/800x600/?wallpainting" class="card-img-top" alt="Pintura de Parede">
+                <div class="card-body">
+                    <h5 class="card-title">Pintura Decorativa</h5>
+                    <p class="card-text">Oferecemos serviços de pintura decorativa para adicionar um toque artístico e personalizado aos seus espaços. Desde murais até técnicas especiais, nossos artistas podem criar o ambiente perfeito para você.</p>
+                    <p class="card-text">Preço: R$800,00</p>
+                    <p class="card-text">Desconto: 10% para projetos artísticos complexos</p>
+                    <a href="login.html" class="btn btn-primary">Comprar</a>
+                    <p class="card-text"><small class="text-muted">Categoria: Pintura Decorativa</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
