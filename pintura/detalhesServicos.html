@@ -73,6 +73,9 @@
         nav a img {
             border-radius: 5px;
         }
+        .star-rating {
+            color: #ffc107;
+        }
     </style>
 </head>
 <body>
@@ -184,9 +187,65 @@
 
         <div class="card">
             <div class="card-header">Avaliações de Clientes Anteriores</div>
+            <div class="card-body" id="avaliacoes">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Maria Oliveira</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                        </h6>
+                        <p class="card-text">Ótimo serviço! A pintura ficou perfeita e o profissional foi muito educado.</p>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Carlos Pereira</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">
+                            <span class="star-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </span>
+                        </h6>
+                        <p class="card-text">Excelente trabalho, recomendo a todos!</p>
+                    </div>
+                </div>
+                <!-- Adicione mais avaliações conforme necessário -->
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Deixe sua Avaliação</div>
             <div class="card-body">
-                <p>Comentários: Seção para visualizar comentários de clientes anteriores</p>
-                <p>Deixe seu Comentário: Espaço para o usuário deixar uma avaliação após a execução do serviço</p>
+                <form id="nova-avaliacao" onsubmit="adicionarAvaliacao(event)">
+                    <div class="form-group">
+                        <label for="nome-usuario">Nome:</label>
+                        <input type="text" id="nome-usuario" name="nome-usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="comentario-usuario">Comentário:</label>
+                        <textarea id="comentario-usuario" name="comentario-usuario" rows="3" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="avaliacao-usuario">Avaliação:</label>
+                        <select id="avaliacao-usuario" name="avaliacao-usuario" class="form-control" required>
+                            <option value="1">1 estrela</option>
+                            <option value="2">2 estrelas</option>
+                            <option value="3">3 estrelas</option>
+                            <option value="4">4 estrelas</option>
+                            <option value="5">5 estrelas</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar Avaliação</button>
+                </form>
             </div>
         </div>
     </div>
@@ -225,5 +284,40 @@
                 alert('Você deve concordar com os termos e condições para continuar.');
             }
         });
+
+        function adicionarAvaliacao(event) {
+            event.preventDefault();
+
+            var nome = document.getElementById('nome-usuario').value;
+            var comentario = document.getElementById('comentario-usuario').value;
+            var avaliacao = document.getElementById('avaliacao-usuario').value;
+
+            var avaliacoesDiv = document.getElementById('avaliacoes');
+            var novoCard = document.createElement('div');
+            novoCard.classList.add('card', 'mb-3');
+            
+            var estrelas = '';
+            for (var i = 0; i < avaliacao; i++) {
+                estrelas += '<i class="fas fa-star"></i>';
+            }
+            for (var i = avaliacao; i < 5; i++) {
+                estrelas += '<i class="far fa-star"></i>';
+            }
+
+            novoCard.innerHTML = `
+                <div class="card-body">
+                    <h5 class="card-title">${nome}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        <span class="star-rating">${estrelas}</span>
+                    </h6>
+                    <p class="card-text">${comentario}</p>
+                </div>
+            `;
+
+            avaliacoesDiv.appendChild(novoCard);
+
+            document.getElementById('nova-avaliacao').reset();
+        }
     </script>
 </body>
+</html>
