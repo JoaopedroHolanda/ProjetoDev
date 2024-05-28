@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Clean House</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #025685;
+            color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .jumbotron {
+            width: 100%;
+            background-color: #025685;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 250px;
+            margin-bottom: 30px;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #025685;
+            color: #fff;
+        }
+        .card-body {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #025685;
+            cursor: pointer;
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar">
+        <a class="navbar-brand" href="index.html">
+            <img src="./imagem/logo.png" alt="Clean House Logo">
+        </a>
+        <ul class="navbar-nav ml-auto" id="navbar-content">
+            <!-- Add navbar items here if needed -->
+        </ul>
+    </nav>
+    
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>FAQ</h1>
+            <p>Perguntas Frequentes</p>
+        </div>
+    </div>
+
+    <!-- Container principal -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <!-- Card de FAQ -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Perguntas Frequentes</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(1)">
+                                <i class="fas fa-chevron-right"></i> O que é a Clean House?
+                            </div>
+                            <div class="faq-answer" id="answer1">
+                                A Clean House é uma empresa que oferece serviços de limpeza e manutenção residencial e comercial.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(2)">
+                                <i class="fas fa-chevron-right"></i> Como posso agendar um serviço?
+                            </div>
+                            <div class="faq-answer" id="answer2">
+                                Você pode agendar um serviço através do nosso site, aplicativo ou entrando em contato pelo telefone.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(3)">
+                                <i class="fas fa-chevron-right"></i> Quais são as formas de pagamento aceitas?
+                            </div>
+                            <div class="faq-answer" id="answer3">
+                                Aceitamos pagamentos com cartão de crédito, débito e boleto bancário.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(4)">
+                                <i class="fas fa-chevron-right"></i> Quais Serviços São Oferecidos?
+                            </div>
+                            <div class="faq-answer" id="answer4">
+                                Oferecemos uma variedade de serviços domésticos, incluindo limpeza residencial, manutenção de jardim, encanamento, serviços de eletricista, pintura, reparos gerais e muito mais. Explore nossa lista completa de serviços disponíveis no aplicativo.
+                            </div>
+                        </div>
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleAnswer(5)">
+                                <i class="fas fa-chevron-right"></i> Qual É a Política de Cancelamento?
+                            </div>
+                            <div class="faq-answer" id="answer5">
+                                Você pode cancelar ou reagendar seu serviço sem custo adicional até um determinado prazo antes da data agendada. Políticas detalhadas de cancelamento podem ser encontradas em nossos termos e condições.
+                            </div>
+                        </div>
+                        <!-- Adicione mais itens de FAQ conforme necessário -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleAnswer(index) {
+            var answer = document.getElementById('answer' + index);
+            var icon = answer.previousElementSibling.querySelector('i');
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                icon.classList.remove('fa-chevron-right');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                answer.style.display = 'none';
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-right');
+            }
+        }
+    </script>
+</body>
+</html>
