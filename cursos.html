@@ -46,6 +46,10 @@
         .topic .card {
             margin-bottom: 20px;
         }
+
+        nav a img{
+            border-radius: 5px;
+        }
         
     </style>
 </head>
@@ -214,7 +218,113 @@
         </div>
     </div>
 </div>
+<script>
+        var usuarioLogado = true;
+        var nomeUsuario = "Carlos";
 
+        function redirecionarServico() {
+            if (!verificarLogin()) return false;
+            var servicoSelecionado = document.getElementById('servicos').value;
+            window.location.href = servicoSelecionado;
+            return false;
+        }
+
+        function atualizarNavbar() {
+            var navbarContent = document.getElementById('navbar-content');
+            if (usuarioLogado) {
+                navbarContent.innerHTML = `
+                <li class="nav-item">
+                <a class="nav-link" href="cursos.html">Cursos</a>
+                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bem-vindo, ${nomeUsuario}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="minhaConta.html">Minha Conta</a>
+                            <a class="dropdown-item" href="faq.html">FAQ</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+                    </li>
+                `;
+            } else {
+                navbarContent.innerHTML = '<li class="nav-item"><a class="nav-link" href="./login/login.html">Login</a></li><li class="nav-item"><a class="nav-link" href="./cadastro/cadastro.html">Cadastrar</a></li>';
+            }
+        }
+
+        function verificarLogin() {
+            if (!usuarioLogado) {
+                alert("Você precisa estar logado para buscar um serviço.");
+                return false;
+            }
+            return true;
+        }
+
+        function logout() {
+            usuarioLogado = false;
+            alert("Você foi deslogado.");
+            window.location.href = "./autenticacao/login.html";
+        }
+
+        function mostrarConversas() {
+            if (usuarioLogado) {
+                $('#conversasModal').modal('show');
+            } else {
+                alert("Você precisa estar logado para ver suas conversas.");
+            }
+        }
+
+        function abrirConversa(nome) {
+            $('#conversaEspecificaModalLabel').text('Conversa com ' + nome);
+            $('#conversaContent').html('<p>Iniciando conversa com ' + nome + '...</p>');
+            $('#conversasModal').modal('hide');
+            $('#conversaEspecificaModal').modal('show');
+        }
+
+        function enviarMensagem() {
+            var mensagem = $('#mensagemInput').val();
+            if (mensagem.trim() !== '') {
+                var novoConteudo = '<p><strong>Você:</strong> ' + mensagem + '</p>';
+                $('#conversaContent').append(novoConteudo);
+                $('#mensagemInput').val('');
+            }
+        }
+
+        function toggleSolicitacoes() {
+            const container = document.getElementById('solicitacoesContainer');
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'block';
+                carregarSolicitacoes();
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        function carregarSolicitacoes() {
+            const lista = document.getElementById('solicitacoesLista');
+            lista.innerHTML = ''; // Limpar conteúdo anterior
+            solicitacoes.forEach(solicitacao => {
+                const item = document.createElement('div');
+                item.className = 'solicitacoes-item';
+                item.innerHTML = `
+                    <h6>Serviço: ${solicitacao.servico}</h6>
+                    <p>Contratante: ${solicitacao.contratante}</p>
+                    <p>Status: ${solicitacao.status}</p>
+                    <button class="btn btn-secondary btn-sm" onclick="acompanharSolicitacao(${solicitacao.id})">Acompanhar</button>
+                `;
+                lista.appendChild(item);
+            });
+        }
+
+        function acompanharSolicitacao(id) {
+            alert("Acompanhando solicitação ID: " + id);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            atualizarNavbar();
+        });
+</script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

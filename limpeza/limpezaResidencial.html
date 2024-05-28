@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Serviço - Clean House</title>
+    <title>Serviços de Pintura - Clean House</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
@@ -28,7 +28,6 @@
         }
         .card {
             box-shadow: 0 0 10px rgba(12, 216, 97, 0.1); 
-            margin-top: 20px;
         }
         .text-muted {
             color: #fff; 
@@ -57,14 +56,8 @@
             margin: 0;
             color: #555;
         }
-        nav a img {
+        nav a img{
             border-radius: 5px;
-        }
-        .card-header {
-            background-color: #025685;
-            color: #fff;
-            font-weight: bold;
-            border-radius: 10px 10px 0 0;
         }
     </style>
 </head>
@@ -87,58 +80,34 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8 mx-auto">
+            <h1 class="text-center mb-5">Serviços de Limpeza</h1>
             <div class="card mb-4">
-                <div class="card-header">Informações do Serviço</div>
+                <img src="../imagem/pintor.jpg" class="card-img-top" alt="Serviço de Pintura">
                 <div class="card-body">
-                    <h5 class="card-title">Reparos Elétricos</h5>
-                    <p class="card-text"><strong>Categoria:</strong> Elétrica</p>
-                    <p class="card-text"><strong>Descrição:</strong> Nossos eletricistas qualificados estão prontos para realizar reparos elétricos em sua residência ou empresa. Oferecemos serviços rápidos e seguros para garantir que seus sistemas elétricos funcionem corretamente.</p>
-                    <p class="card-text"><strong>Preço Estimado:</strong> R$100,00 por hora</p>
-                    <p class="card-text"><strong>Desconto:</strong> 10% para serviços agendados até o final do mês</p>
-                    <div class="service-details">
-                        <h5>Detalhes Adicionais:</h5>
-                        <ul>
-                            <li>Garantia de 6 meses para todos os serviços.</li>
-                            <li>Utilização de equipamentos e materiais de alta qualidade.</li>
-                            <li>Serviço disponível 24/7 para emergências.</li>
-                        </ul>
+                    <h5 class="card-title">Limpeza Residencial</h5>
+                    <p class="card-text">Nossos  profissionais transformarão sua casa com cores vibrantes e acabamentos de alta qualidade. Utilizamos apenas tintas de qualidade para garantir um resultado duradouro e satisfatório.</p>
+                    <p class="card-text">Preço: R$200,00</p>
+                    <p class="card-text">Desconto: Sem desconto</p>
+                    <a href="detalhesServicos.html" class="btn btn-primary">Comprar</a>
+                    <p class="card-text"><small class="text-muted">Categoria: Limpeza Residencial</small></p>
+                </div>
+                <div class="service-provider">
+                    <img src="../imagem/pessoaaaaaa.jpg" alt="Prestador de Serviço">
+                    <div class="service-provider-info">
+                        <h5>Alfredo Costa</h5>
+                        <p>Especialista em Limpeza Residencial</p>
                     </div>
-                    <a href="formulario_orcamento.html" class="btn btn-secondary">Solicitar Orçamento</a>
-                    <a href="minhaConta.html" class="btn btn-primary">Contratar Serviço</a>
                 </div>
             </div>
-
-            <div class="card mb-4">
-                <div class="card-header">Prestador de Serviço</div>
-                <div class="card-body">
-                    <div class="service-provider">
-                        <img src="../imagem/eletricista1.jpg" alt="Prestador de Serviço">
-                        <div class="service-provider-info">
-                            <h5>Pedro Martins</h5>
-                            <p>Especialista em Reparos Elétricos</p>
-                        </div>
-                    </div>
-                    <p><strong>Avaliação:</strong> 4.8 (150 avaliações)</p>
-                    <p><strong>Certificações:</strong> Eletricista Certificado</p>
-                </div>
-            </div>
-
-            <div class="card mb-4">
-                <div class="card-header">Avaliações de Clientes Anteriores</div>
-                <div class="card-body">
-                    <p>Comentários: Seção para visualizar comentários de clientes anteriores</p>
-                    <p>Deixe seu Comentário: Espaço para o usuário deixar uma avaliação após a execução do serviço</p>
-                </div>
-            </div>
-        </div>
+           
     </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     function logout() {
+        usuarioLogado = false;
         alert("Você foi deslogado.");
         window.location.href = "../autenticacao/login.html";
     }
