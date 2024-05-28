@@ -145,7 +145,8 @@
                     <a class="dropdown-item" href="minhaConta.html">Minha Conta</a>
                     <a class="dropdown-item" href="faq.html">FAQ</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                    <!-- Adicionando um ID ao link de logout -->
+                    <a id="logoutLink" class="dropdown-item" href="#">Logout</a>
                 </div>
             </li>
         </ul>
@@ -427,33 +428,30 @@ function rejeitarSolicitacao(servico, index) {
     solicitacoes[servico][index].status = 'Rejeitado';
     verSolicitacoes(servico);
 }
-function atualizarNavbar() {
-            var navbarContent = document.getElementById('navbar-content');
-            if (usuarioLogado) {
-                navbarContent.innerHTML = `
-                <li class="nav-item">
-                <a class="nav-link" href="cursos.html">Cursos</a>
-                </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Bem-vindo, ${nomeUsuario}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="minhaConta.html">Minha Conta</a>
-                            <a class="dropdown-item" href="faq.html">FAQ</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
-                        </div>
-                    </li>
-                `;
-            } else {
-                navbarContent.innerHTML = '<li class="nav-item"><a class="nav-link" href="./login/login.html">Login</a></li><li class="nav-item"><a class="nav-link" href="./cadastro/cadastro.html">Cadastrar</a></li>';
-            }
+function logout() {
+            // Aqui você pode adicionar o código de logout necessário
+            // Por exemplo:
+            // Limpar dados de sessão, redirecionar para a página de login, etc.
+            alert("Você foi deslogado.");
+            window.location.href = "./autenticacao/login.html";
         }
 
+        // Atualizar navbar com base no estado de login
+        function atualizarNavbar() {
+            // Aqui você pode adicionar lógica para atualizar o conteúdo do Navbar
+            // de acordo com o estado de login do usuário
+        }
 
-document.addEventListener('DOMContentLoaded', () => {
+        // Quando o DOM estiver completamente carregado
+        document.addEventListener('DOMContentLoaded', function() {
+            // Atualizar navbar
             atualizarNavbar();
+            
+            // Associar evento de clique ao link de logout
+            document.getElementById('logoutLink').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevenir o comportamento padrão do link
+                logout(); // Chamar a função logout ao clicar no link
+            });
         });
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
