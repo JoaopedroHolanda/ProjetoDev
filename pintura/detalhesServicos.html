@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>Página de Detalhes do Serviço</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #025685;
+            color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .card {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: #025685;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #025685;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #014f7a;
+        }
+        .form-check-label {
+            margin-left: 10px;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        nav a img {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar">
+        <a class="navbar-brand" href="index.html">
+            <img src="../imagem/logo.png" alt="Clean House Logo">
+        </a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="../minhaConta.html">Minha conta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" onclick="logout()">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">Informações do Serviço</div>
+            <div class="card-body">
+                <p><strong>Nome do Serviço:</strong> Limpeza Residencial</p>
+                <p><strong>Categoria:</strong> Limpeza</p>
+                <p><strong>Descrição:</strong> Serviço profissional de limpeza residencial, incluindo aspiração, esfregação, limpeza de vidros e muito mais.</p>
+                <p><strong>Preço Estimado:</strong> R$200,00 (Desconto de 10% para serviços agendados até o final do mês)</p>
+                <p><strong>Tempo Estimado de Execução:</strong> 2 horas</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Prestador de Serviço</div>
+            <div class="card-body">
+                <p><strong>Nome da Empresa/Prestador:</strong> João Silva</p>
+                <p><strong>Avaliação:</strong> 4.5 (128 avaliações)</p>
+                <p><strong>Certificações:</strong> Certificado de Limpeza Profissional</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Solicitar Orçamento</div>
+            <div class="card-body">
+                <form id="pagamento" action="resumo.html" method="POST">
+                    <div class="form-group">
+                        <label for="data-servico">Data do Serviço:</label>
+                        <input type="date" id="data-servico" name="data-servico" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hora-servico">Hora do Serviço:</label>
+                        <input type="time" id="hora-servico" name="hora-servico" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="forma-pagamento">Forma de Pagamento:</label>
+                        <select id="forma-pagamento" name="forma-pagamento" required onchange="togglePaymentFields()">
+                            <option value="">Selecione a forma de pagamento...</option>
+                            <option value="credito">Cartão de Crédito</option>
+                            <option value="debito">Cartão de Débito</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="boleto">Boleto Bancário</option>
+                            <option value="pix">PIX</option>
+                        </select>
+                    </div>
+
+                    <div id="cartao-info" style="display: none;">
+                        <div class="form-group">
+                            <label for="nome-cartao">Nome no Cartão:</label>
+                            <input type="text" id="nome-cartao" name="nome-cartao" placeholder="Digite o nome como aparece no cartão">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="numero-cartao">Número do Cartão:</label>
+                            <input type="text" id="numero-cartao" name="numero-cartao" placeholder="Digite o número do cartão">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="data-validade">Data de Validade:</label>
+                            <input type="month" id="data-validade" name="data-validade">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="Código de segurança">
+                        </div>
+                    </div>
+
+                    <div id="outros-info" style="display: none;">
+                        <p id="info-msg"></p>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="termos" required>
+                        <label class="form-check-label" for="termos">Eu concordo com os <a href="termos.html">termos e condições</a></label>
+                    </div>
+
+                    <button type="submit" class="btn">Confirmar Contrato</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Avaliações de Clientes Anteriores</div>
+            <div class="card-body">
+                <p>Comentários: Seção para visualizar comentários de clientes anteriores</p>
+                <p>Deixe seu Comentário: Espaço para o usuário deixar uma avaliação após a execução do serviço</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePaymentFields() {
+            var formaPagamento = document.getElementById('forma-pagamento').value;
+            var cartaoInfo = document.getElementById('cartao-info');
+            var outrosInfo = document.getElementById('outros-info');
+            var infoMsg = document.getElementById('info-msg');
+
+            if (formaPagamento === 'credito' || formaPagamento === 'debito') {
+                cartaoInfo.style.display = 'block';
+                outrosInfo.style.display = 'none';
+            } else {
+                cartaoInfo.style.display = 'none';
+                outrosInfo.style.display = 'block';
+
+                if (formaPagamento === 'paypal') {
+                    infoMsg.textContent = 'Você será redirecionado para o PayPal para concluir o pagamento.';
+                } else if (formaPagamento === 'boleto') {
+                    infoMsg.textContent = 'Um boleto bancário será gerado para você realizar o pagamento.';
+                } else if (formaPagamento === 'pix') {
+                    infoMsg.textContent = 'Você receberá um código PIX para concluir o pagamento.';
+                } else {
+                    infoMsg.textContent = '';
+                }
+            }
+        }
+
+        document.getElementById('pagamento').addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (document.getElementById('termos').checked) {
+                window.location.href = 'resumo.html';
+            } else {
+                alert('Você deve concordar com os termos e condições para continuar.');
+            }
+        });
+    </script>
+</body>

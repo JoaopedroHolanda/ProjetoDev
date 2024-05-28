@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Serviços - Clean House</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #025685;
+            color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .jumbotron {
+            width: 100%;
+            background-image: url('./imagem/background.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 270px;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+        }
+        .search-form select {
+            background-color: #f8f9fa;
+            border-radius: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(12, 216, 97, 0.1);
+        }
+        .search-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+        }
+        .search-form button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #01000e00;
+            color: #fff;
+            cursor: pointer;
+        }
+        nav a img {
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #025685;
+        }
+        .btn:hover {
+            background-color: #fff;
+            color: #025685;
+        }
+        .jumbotron .container {
+            margin-top: 30px;
+            background-color: #025685;
+            width: 600px;
+            border-radius: 10px;
+        }
+        .chat-icon, .solicitacoes-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 80px;
+            background-color: #025685;
+            color: #fff;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+        .solicitacoes-icon {
+            right: 20px;
+            margin-right: 0.1px;
+        }
+        .solicitacoes-container {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+        .solicitacoes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .solicitacoes-header h5 {
+            margin: 0;
+        }
+        .solicitacoes-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .solicitacoes-item:last-child {
+            border-bottom: none;
+        }
+        .solicitacoes-item h6 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar">
+        <a class="navbar-brand" href="index.html">
+            <img src="./imagem/logo.png" alt="Clean House Logo">
+        </a>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="cursos.html">Cursos</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bem-vindo, José
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="minhaConta.html">Minha Conta</a>
+                    <a class="dropdown-item" href="faq.html">FAQ</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    
+    
+    
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Meus Serviços</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" id="servicos-container">
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Limpeza Residencial</h5>
+                        <p class="card-text">Serviço de limpeza para residências.</p>
+                        <a href="#" class="btn btn-primary" onclick="verSolicitacoes('Limpeza Residencial')">Ver Solicitações</a>
+                        <a href="#" class="btn btn-danger" onclick="removerServico(this)">Remover</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Limpeza Total</h5>
+                        <p class="card-text">Serviço de limpeza completa, incluindo áreas externas.</p>
+                        <a href="#" class="btn btn-primary" onclick="verSolicitacoes('Limpeza Total')">Ver Solicitações</a>
+                        <a href="#" class="btn btn-danger" onclick="removerServico(this)">Remover</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Limpeza Pós-Obra</h5>
+                        <p class="card-text">Serviço de limpeza especializada após reformas ou construções.</p>
+                        <a href="#" class="btn btn-primary" onclick="verSolicitacoes('Limpeza Pós-Obra')">Ver Solicitações</a>
+                        <a href="#" class="btn btn-danger" onclick="removerServico(this)">Remover</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Formulário para adicionar novos serviços -->
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Adicionar Novo Serviço</h5>
+                        <form id="formAdicionarServico">
+                            <div class="form-group">
+                                <label for="nomeServico">Nome do Serviço</label>
+                                <input type="text" class="form-control" id="nomeServico" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="descricaoServico">Descrição</label>
+                                <textarea class="form-control" id="descricaoServico" rows="3" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="valor">Valor</label>
+                                <input type="text" class="form-control" id="valor">
+                            </div>
+                            <button type="submit" class="btn btn-success">Adicionar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-icon" onclick="mostrarConversas()">
+        <i class="fas fa-comments fa-2x"></i>
+    </div>
+
+    <div class="solicitacoes-icon" onclick="toggleSolicitacoes()">
+        <i class="fas fa-tasks fa-2x"></i>
+    </div>
+
+    <div class="solicitacoes-container" id="solicitacoesContainer">
+        <div class="solicitacoes-header">
+            <h5>Minhas Solicitações</h5>
+            <button type="button" class="close" onclick="toggleSolicitacoes()">&times;</button>
+        </div>
+        <div id="solicitacoesLista">
+            <!-- As solicitações do usuário serão inseridas aqui -->
+        </div>
+    </div>
+
+    <!-- Modal de Conversas -->
+    <div class="modal fade" id="conversasModal" tabindex="-1" aria-labelledby="conversasModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="conversasModalLabel">Minhas Conversas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Conteúdo das conversas -->
+                    <div class="chat-container">
+                        <!-- Aqui você pode adicionar o conteúdo das conversas -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Solicitações -->
+    <div class="modal fade" id="solicitacoesModal" tabindex="-1" aria-labelledby="solicitacoesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="solicitacoesModalLabel">Solicitações para <span id="servicoTitulo"></span></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Conteúdo das solicitações -->
+                    <div id="listaSolicitacoesModal">
+                        <!-- As solicitações serão carregadas aqui -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Função para remover um serviço
+        function removerServico(button) {
+            const card = button.closest('.col-md-3');
+            card.remove();
+        }
+
+        // Função para adicionar um novo serviço
+        document.getElementById('formAdicionarServico').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nomeServico = document.getElementById('nomeServico').value;
+            const descricaoServico = document.getElementById('descricaoServico').value;
+            const valor = document.getElementById("valor").value
+
+            const novoServico = document.createElement('div');
+            novoServico.className = 'col-md-3';
+            novoServico.innerHTML = `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${nomeServico}</h5>
+                        <p class="card-text">${descricaoServico}</p>
+                        <a href="#" class="btn btn-primary" onclick="verSolicitacoes('${nomeServico}')">Ver Solicitações</a>
+                        <a href="#" class="btn btn-danger" onclick="removerServico(this)">Remover</a>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('servicos-container').appendChild(novoServico);
+
+            // Limpar o formulário após adicionar o serviço
+            document.getElementById('formAdicionarServico').reset();
+        });
+
+        // Função para ver solicitações de um serviço específico
+        function verSolicitacoes(servico) {
+            document.getElementById('servicoTitulo').innerText = servico;
+            $('#solicitacoesModal').modal('show');
+        }
+
+        // Função para mostrar e esconder a lista de solicitações
+        function toggleSolicitacoes() {
+            const solicitacoesContainer = document.getElementById('solicitacoesContainer');
+            solicitacoesContainer.style.display = solicitacoesContainer.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Função para mostrar o modal de conversas
+        function mostrarConversas() {
+            $('#conversasModal').modal('show');
+        }
+
+        // Inicializar lista de solicitações oculta
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('solicitacoesContainer').style.display = 'none';
+        });
+
+        // Exemplo de solicitações
+var solicitacoes = {
+    'Limpeza Residencial': [
+        { cliente: 'João Silva', data: '2023-05-20', status: 'Pendente' },
+        { cliente: 'Maria Oliveira', data: '2023-05-22', status: 'Concluído' }
+    ],
+    'Limpeza Total': [
+        { cliente: 'Carlos Sousa', data: '2023-05-18', status: 'Em andamento' }
+    ],
+    'Limpeza Pós-Obra': [
+        { cliente: 'Ana Costa', data: '2023-05-25', status: 'Pendente' }
+    ]
+};
+
+// Exibir solicitações de um serviço
+function verSolicitacoes(servico) {
+    var listaSolicitacoes = solicitacoes[servico] || [];
+    var solicitacoesHtml = '';
+
+    listaSolicitacoes.forEach(function(solicitacao, index) {
+        solicitacoesHtml += `
+            <div class="solicitacoes-item">
+                <h6>Cliente: ${solicitacao.cliente}</h6>
+                <p>Data: ${solicitacao.data}</p>
+                <p>Status: ${solicitacao.status}</p>
+                <button class="btn btn-success" onclick="aceitarSolicitacao('${servico}', ${index})">Aceitar</button>
+                <button class="btn btn-danger" onclick="rejeitarSolicitacao('${servico}', ${index})">Rejeitar</button>
+            </div>
+        `;
+    });
+
+    if (solicitacoesHtml === '') {
+        solicitacoesHtml = '<p>Nenhuma solicitação encontrada.</p>';
+    }
+
+    $('#listaSolicitacoesModal').html(solicitacoesHtml);
+    $('#solicitacoesModal').modal('show');
+}
+
+// Exemplo de solicitações
+var solicitacoes = {
+    'Limpeza Residencial': [
+        { cliente: 'João Silva', data: '2023-05-20', status: 'Pendente' },
+        { cliente: 'Maria Oliveira', data: '2023-05-22', status: 'Concluído' }
+    ],
+    'Limpeza Total': [
+        { cliente: 'Carlos Sousa', data: '2023-05-18', status: 'Em andamento' }
+    ],
+    'Limpeza Pós-Obra': [
+        { cliente: 'Ana Costa', data: '2023-05-25', status: 'Pendente' }
+    ]
+};
+
+// Exibir solicitações de um serviço
+function verSolicitacoes(servico) {
+    var listaSolicitacoes = solicitacoes[servico] || [];
+    var solicitacoesHtml = '';
+
+    listaSolicitacoes.forEach(function(solicitacao, index) {
+        solicitacoesHtml += `
+            <div class="solicitacoes-item">
+                <h6>Cliente: ${solicitacao.cliente}</h6>
+                <p>Data: ${solicitacao.data}</p>
+                <p>Status: ${solicitacao.status}</p>
+                <button class="btn btn-success" onclick="aceitarSolicitacao('${servico}', ${index})">Aceitar</button>
+                <button class="btn btn-danger" onclick="rejeitarSolicitacao('${servico}', ${index})">Rejeitar</button>
+            </div>
+        `;
+    });
+
+    if (solicitacoesHtml === '') {
+        solicitacoesHtml = '<p>Nenhuma solicitação encontrada.</p>';
+    }
+
+    $('#listaSolicitacoesModal').html(solicitacoesHtml);
+    $('#solicitacoesModal').modal('show');
+}
+
+// Função para aceitar uma solicitação
+function aceitarSolicitacao(servico, index) {
+    solicitacoes[servico][index].status = 'Aceito';
+    verSolicitacoes(servico);
+}
+
+// Função para rejeitar uma solicitação
+function rejeitarSolicitacao(servico, index) {
+    solicitacoes[servico][index].status = 'Rejeitado';
+    verSolicitacoes(servico);
+}
+function atualizarNavbar() {
+            var navbarContent = document.getElementById('navbar-content');
+            if (usuarioLogado) {
+                navbarContent.innerHTML = `
+                <li class="nav-item">
+                <a class="nav-link" href="cursos.html">Cursos</a>
+                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bem-vindo, ${nomeUsuario}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="minhaConta.html">Minha Conta</a>
+                            <a class="dropdown-item" href="faq.html">FAQ</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+                    </li>
+                `;
+            } else {
+                navbarContent.innerHTML = '<li class="nav-item"><a class="nav-link" href="./login/login.html">Login</a></li><li class="nav-item"><a class="nav-link" href="./cadastro/cadastro.html">Cadastrar</a></li>';
+            }
+        }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+            atualizarNavbar();
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

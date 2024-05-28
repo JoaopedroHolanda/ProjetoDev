@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos - Clean House</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #025685;
+            color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .jumbotron {
+            width: 100%;
+            background-image: url('https://via.placeholder.com/1920x250');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 250px;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+        }
+        .container .topic {
+            margin-top: 20px;
+        }
+        .topic h2 {
+            margin-bottom: 20px;
+        }
+        .topic .card {
+            margin-bottom: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar">
+    <a class="navbar-brand" href="index.html">
+        <img src="./imagem/logo.png" alt="Clean House Logo">
+    </a>
+    <ul class="navbar-nav ml-auto" id="navbar-content">
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="mostrarMeusPedidos()">Meus Pedidos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="cursos.html">Cursos</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Cursos</h1>
+        <p>Aprenda novas habilidades e melhore seus conhecimentos com nossos cursos</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="topic">
+        <h2>Limpeza</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Limpeza 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Limpeza Residencial</h5>
+                        <p class="card-text">Aprenda técnicas de limpeza residencial.</p>
+                        <a href="https://www.youtube.com/watch?v=8vaLFsvr500" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Limpeza 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Limpeza Profissional</h5>
+                        <p class="card-text">Torne-se um especialista em limpeza profissional.</p>
+                        <a href="https://www.youtube.com/watch?v=8vaLFsvr500" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Limpeza 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Limpeza Pós-Obra</h5>
+                        <p class="card-text">Especialize-se em limpeza após obras e reformas.</p>
+                        <a href="https://www.youtube.com/watch?v=cDFP8rTfFdA" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="topic">
+        <h2>Jardinagem</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Jardinagem 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Jardinagem Básica</h5>
+                        <p class="card-text">Aprenda os fundamentos da jardinagem.</p>
+                        <a href="https://www.youtube.com/watch?v=jeKz1cSE39k&list=PLaGovGNUghW69oAbfcEnGs-5dX7gaNk0N" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Jardinagem 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Paisagismo</h5>
+                        <p class="card-text">Desenvolva habilidades de design de paisagens.</p>
+                        <a href="https://www.youtube.com/watch?v=DdJQTNIBvMc&list=PLqC-Xvbtky3aZ2zHtPkvYkslDq5tLkbtE" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Jardinagem 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Manutenção de Jardins</h5>
+                        <p class="card-text">Aprenda a manter e cuidar de jardins.</p>
+                        <a href="curso_jardinagem3.html" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="topic">
+        <h2>Eletricidade</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Eletricidade 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Instalações Elétricas</h5>
+                        <p class="card-text">Aprenda a instalar sistemas elétricos residenciais.</p>
+                        <a href="curso_eletricidade1.html" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Eletricidade 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Manutenção Elétrica</h5>
+                        <p class="card-text">Técnicas de manutenção para sistemas elétricos.</p>
+                        <a href="curso_eletricidade2.html" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Eletricidade 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Automação Residencial</h5>
+                        <p class="card-text">Aprenda a implementar automação em residências.</p>
+                        <a href="curso_eletricidade3.html" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="topic">
+        <h2>Pintura</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Pintura 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Pintura Residencial</h5>
+                        <p class="card-text">Técnicas para pintura de interiores e exteriores.</p>
+                        <a href="curso_pintura1.html" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Pintura 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Pintura Decorativa</h5>
+                        <p class="card-text">Desenvolva habilidades em técnicas de pintura decorativa.</p>
+                        <a href="curso_pintura2.html" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Curso de Pintura 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Curso de Pintura Industrial</h5>
+                        <p class="card-text">Técnicas de pintura para ambientes industriais.</p>
+                        <a href="curso_pintura3.html" class="btn btn-primary">Ver Curso</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

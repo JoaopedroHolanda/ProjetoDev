@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços de Eletricista - Clean House</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #025685;
+        }
+        .navbar .nav-link {
+            color: #fff; 
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            background-color: #025685; /* Cor azul padrão do site */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #fff; 
+            color: #025685; 
+        }
+        .card {
+            box-shadow: 0 0 10px rgba(12, 216, 97, 0.1); 
+        }
+        .text-muted {
+            color: #fff; 
+        }
+        .service-provider {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .service-provider img {
+            border-radius: 50%;
+            margin-right: 15px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .service-provider-info {
+            flex: 1;
+        }
+        .service-provider-info h5 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #025685;
+        }
+        .service-provider-info p {
+            margin: 0;
+            color: #555;
+        }
+        nav a img{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar">
+    <a class="navbar-brand" href="../index.html">
+        <img src="../imagem/logo.png" alt="Clean House Logo">
+    </a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="../minhaConta.html">Minha conta</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" onclick="logout()">Log Out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <h1 class="text-center mb-5">Serviços de Eletricista</h1>
+            <div class="card mb-4">
+                <img src="../imagem/reparos_eletricos.jpg" class="card-img-top" alt="Reparos Elétricos">
+                <div class="card-body">
+                    <h5 class="card-title">Reparos Elétricos</h5>
+                    <p class="card-text">Nossos eletricistas qualificados estão prontos para realizar reparos elétricos em sua residência ou empresa. Oferecemos serviços rápidos e seguros para garantir que seus sistemas elétricos funcionem corretamente.</p>
+                    <p class="card-text">Preço: R$100,00 por hora</p>
+                    <p class="card-text">Desconto: 10% para serviços agendados até o final do mês</p>
+                    <a href="detalhesServicos.html" class="btn btn-primary">Comprar</a>
+                    <p class="card-text"><small class="text-muted">Categoria: Eletricista</small></p>
+                </div>
+                <div class="service-provider">
+                    <img src="../imagem/eletricista1.jpg" alt="Prestador de Serviço">
+                    <div class="service-provider-info">
+                        <h5>Pedro Martins</h5>
+                        <p>Especialista em Reparos Elétricos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <img src="../imagem/instalacao_eletrica.jpg" class="card-img-top" alt="Instalação Elétrica">
+                <div class="card-body">
+                    <h5 class="card-title">Instalação Elétrica</h5>
+                    <p class="card-text">Oferecemos serviços completos de instalação elétrica para novas construções e reformas. Nossos eletricistas garantem a instalação segura e eficiente de todos os componentes elétricos necessários.</p>
+                    <p class="card-text">Preço: R$500,00 por projeto</p>
+                    <p class="card-text">Desconto: 15% para projetos completos</p>
+                    <a href="login.html" class="btn btn-primary">Comprar</a>
+                    <p class="card-text"><small class="text-muted">Categoria: Eletricista</small></p>
+                </div>
+                <div class="service-provider">
+                    <img src="../imagem/eletricista2.jpg" alt="Prestador de Serviço">
+                    <div class="service-provider-info">
+                        <h5>Ana Souza</h5>
+                        <p>Especialista em Instalação Elétrica</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function logout() {
+        usuarioLogado = false;
+        alert("Você foi deslogado.");
+        window.location.href = "../autenticacao/login.html";
+    }
+</script>
+</body>
+</html>

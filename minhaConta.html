@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - Clean House</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #025685;
+            color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .jumbotron {
+            width: 100%;
+           background-color: #025685  ;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 250px;
+            margin-bottom: 30px;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #025685;
+            color: #fff;
+        }
+        .card-body {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #025685;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #014472;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #025685;
+        }
+        .info-value {
+            color: #495057;
+        }
+        .service-item {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+        .service-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .service-item h6 {
+            margin-bottom: 5px;
+            color: #025685;
+        }
+
+        nav a img{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar">
+        <a class="navbar-brand" href="index.html">
+            <img src="./imagem/logo.png" alt="Clean House Logo">
+        </a>
+        <ul class="navbar-nav ml-auto" id="navbar-content">
+        
+        </ul>
+    </nav>
+    
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>Minha Conta</h1>
+        <p>Visualize suas informações pessoais e histórico de serviços</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Informações Pessoais</h5>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="./imagem/Face.jpeg" alt="Profile Picture" class="profile-img">
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Nome:</span>
+                        <span class="info-value">Carlos</span>
+                        <button class="btn btn-primary ml-2" onclick="alterarNome()">Alterar</button>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email:</span>
+                        <span class="info-value">carlos@email.com</span>
+                        <button class="btn btn-primary ml-2" onclick="alterarEmail()">Alterar</button>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Telefone:</span>
+                        <span class="info-value">(11) 98765-4321</span>
+                        <button class="btn btn-primary ml-2" onclick="alterarTelefone()">Alterar</button>
+                    </div>
+                    <!-- Adicione mais informações conforme necessário -->
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h5 class="card-title">Histórico de Serviços</h5>
+                </div>
+                <div class="card-body">
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Serviço: Limpeza Residencial</h6>
+                                <p>Profissional: João da Silva</p>
+                                <p>Data: 10/05/2024</p>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary" onclick="verDetalhes()">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-item">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h6>Serviço: Encanamento</h6>
+                                <p>Profissional: Maria Oliveira</p>
+                                <p>Data: 15/05/2024</p>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-primary" onclick="verDetalhes()">Ver Detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Adicione mais serviços conforme necessário -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap"></script>
+<script>
+    function alterarNome() {
+        var novoNome = prompt("Digite o novo nome:");
+        if (novoNome !== null && novoNome.trim() !== "") {
+            document.querySelector('.info-value:nth-of-type(1)').textContent = novoNome;
+        }
+    }
+
+    function alterarEmail() {
+        var novoEmail = prompt("Digite o novo email:");
+        if (novoEmail !== null && novoEmail.trim() !== "") {
+            document.querySelector('.info-value:nth-of-type(2)').textContent = novoEmail;
+        }
+    }
+
+    function alterarTelefone() {
+        var novoTelefone = prompt("Digite o novo telefone:");
+        if (novoTelefone !== null && novoTelefone.trim() !== "") {
+            document.querySelector('.info-value:nth-of-type(3)').textContent = novoTelefone;
+        }
+    }
+
+    function verDetalhes() {
+        // Aqui você pode adicionar a lógica para exibir os detalhes do serviço
+        alert("Detalhes do serviço serão exibidos aqui");
+    }
+</script>
+

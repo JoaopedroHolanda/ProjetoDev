@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>Resumo do Pedido</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #025685;
+            color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: #025685;
+            color: #fff;
+            font-weight: bold;
+            border-radius: 10px 10px 0 0;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #025685;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #014f7a;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav a img{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="../index.html">
+            <img src="../imagem/logo.png" alt="Clean House Logo">
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Resumo do Pedido</div>
+            <div class="card-body">
+                <h5>Informações do Serviço</h5>
+                <p><strong>Nome do Serviço:</strong> Limpeza Residencial</p>
+                <p><strong>Categoria:</strong> Limpeza</p>
+                <p><strong>Descrição:</strong> Serviço profissional de limpeza residencial, incluindo aspiração, esfregação, limpeza de vidros e muito mais.</p>
+                <p><strong>Preço Estimado:</strong> R$200,00 (Desconto de 10% para serviços agendados até o final do mês)</p>
+                <p><strong>Tempo Estimado de Execução:</strong> 2 horas</p>
+
+                <h5 class="mt-4">Prestador de Serviço</h5>
+                <p><strong>Nome da Empresa/Prestador:</strong> CleanHome Ltda</p>
+                <p><strong>Avaliação:</strong> 4.5 (128 avaliações)</p>
+                <p><strong>Certificações:</strong> Certificado de Limpeza Profissional</p>
+
+                <h5 class="mt-4">Data e Horário</h5>
+                <p><strong>Data: </strong>23/05/2024</p>
+                <p><strong>Horário: </strong>15:00</p>
+
+                <h5 class="mt-4">Detalhes do Pagamento</h5>
+                <p><strong>Forma de Pagamento:</strong> Cartão de Crédito</p>
+                <p><strong>Nome no Cartão:</strong> João da Silva</p>
+                <p><strong>Número do Cartão:</strong> **** **** **** 1234</p>
+                <p><strong>Data de Validade:</strong> 05/2024</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body btn-group">
+                <button onclick="finalizarPedido()" class="btn">Finalizar Pedido</button>
+                <button onclick="cancelarPedido()" class="btn btn-secondary">Cancelar Pedido</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function finalizarPedido() {
+            alert('Pedido finalizado com sucesso!');
+            window.location.href = '../index.html';
+        }
+
+        function cancelarPedido() {
+            alert('Pedido cancelado.');
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>

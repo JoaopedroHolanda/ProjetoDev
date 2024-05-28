@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Serviços - Clean House</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #025685;
+            color: #fff;
+        }
+        .navbar .nav-link {
+            color: #fff;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 20px;
+        }
+        .jumbotron {
+            width: 100%;
+            background-image: url('./imagem/background.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 250px;
+        }
+        .jumbotron h1 {
+            font-size: 3.5rem;
+        }
+        .search-form select {
+            background-color: #f8f9fa;
+            border-radius: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(12, 216, 97, 0.1);
+        }
+        .search-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+        }
+        .search-form button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #01000e00;
+            color: #fff;
+            cursor: pointer;
+        }
+        nav a img {
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #025685;
+        }
+        .btn:hover {
+            background-color: #fff;
+            color: #025685;
+        }
+        .jumbotron .container {
+            margin-top: 30px;
+            background-color: #025685;
+            width: 600px;
+            border-radius: 10px;
+        }
+        .chat-icon, .solicitacoes-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 80px;
+            background-color: #025685;
+            color: #fff;
+            border-radius: 50%;
+            padding: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+
+        .solicitacoes-icon {
+            right: 20px;
+           
+           margin-right: 0.1px;
+        }
+        .solicitacoes-container {
+            display: none;
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
+        .solicitacoes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .solicitacoes-header h5 {
+            margin: 0;
+        }
+        .solicitacoes-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .solicitacoes-item:last-child {
+            border-bottom: none;
+        }
+        .solicitacoes-item h6 {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar">
+        <a class="navbar-brand" href="index.html">
+            <img src="./imagem/logo.png" alt="Clean House Logo">
+        </a>
+        <ul class="navbar-nav ml-auto" id="navbar-content">
+            <li class="nav-item">
+                <a class="nav-link" href="cursos.html">Cursos</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Buscar Serviços</h1>
+            <p>Encontre os melhores profissionais para suas necessidades de limpeza</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form class="search-form" onsubmit="return redirecionarServico();">
+                        <label for="servicos" class="form-label">Escolha um serviço:</label>
+                        <select name="servicos" id="servicos" class="form-select">
+                            <option value="./limpeza/limpezaResidencial.html">Limpeza Residencial</option>
+                            <option value="./encanamento/encanamento.html">Encanamento</option>
+                            <option value="./eletricista/eletricista.html">Eletricista</option>
+                            <option value="./pintura/pintor.html">Pintor</option>
+                        </select>
+                        <button type="submit" class="btn btn-light"><i class="fas fa-search"></i> Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="./imagem/limpeza.jpg" class="card-img-top" alt="Limpeza Residencial">
+                    <div class="card-body">
+                        <h5 class="card-title">Limpeza Residencial</h5>
+                        <p class="card-text">Encontre profissionais para limpar a sua casa de forma eficiente.</p>
+                        <a href="./limpeza/limpezaResidencial.html" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="./imagem/encanador.jpg" class="card-img-top" alt="Encanamento">
+                    <div class="card-body">
+                        <h5 class="card-title">Encanamento</h5>
+                        <p class="card-text">Problemas com vazamentos? Encontre especialistas em encanamento aqui.</p>
+                        <a href="./encanamento/encanamento.html" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="./imagem/eletricista.jpg" class="card-img-top" alt="Eletricista">
+                    <div class="card-body">
+                        <h5 class="card-title">Eletricista</h5>
+                        <p class="card-text">Precisando de reparos elétricos? Encontre profissionais qualificados.</p>
+                        <a href="./eletricista/eletricista.html" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="./imagem/pintor.jpg" class="card-img-top" alt="Pintor Trabalhando">
+                    <div class="card-body">
+                        <h5 class="card-title">Pintor</h5>
+                        <p class="card-text">Precisando de serviços de pintura? Encontre pintores profissionais aqui.</p>
+                        <a href="./pintura/pintor.html" class="btn btn-primary">Ver Mais</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-icon" onclick="mostrarConversas()">
+        <i class="fas fa-comments fa-2x"></i>
+    </div>
+
+    <div class="solicitacoes-icon" onclick="toggleSolicitacoes()">
+        <i class="fas fa-tasks fa-2x"></i>
+    </div>
+
+    <div class="solicitacoes-container" id="solicitacoesContainer">
+        <div class="solicitacoes-header">
+            <h5>Minhas Solicitações</h5>
+            <button type="button" class="close" onclick="toggleSolicitacoes()">&times;</button>
+        </div>
+        <div id="solicitacoesLista">
+            <!-- As solicitações do usuário serão inseridas aqui -->
+        </div>
+    </div>
+
+    <!-- Modal de Conversas -->
+    <div class="modal fade" id="conversasModal" tabindex="-1" aria-labelledby="conversasModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="conversasModalLabel">Minhas Conversas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary" onclick="abrirConversa('Prestador 1')">Conversar com João da Silva</button>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary" onclick="abrirConversa('Prestador 2')">Conversar com Maria Olvieira</button>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary" onclick="abrirConversa('Prestador 3')">Conversar com Carlos Sousa </button>
+                        </div>
+                        <!-- Adicione mais conversas conforme necessário -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Conversa Específica -->
+    <div class="modal fade" id="conversaEspecificaModal" tabindex="-1" aria-labelledby="conversaEspecificaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="conversaEspecificaModalLabel">Conversa com Prestador</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="conversaContent">
+                        <!-- O conteúdo da conversa será inserido aqui dinamicamente -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="text" class="form-control" id="mensagemInput" placeholder="Digite sua mensagem...">
+                    <button type="button" class="btn btn-primary" onclick="enviarMensagem()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const solicitacoes = [
+            { id: 1, servico: 'Limpeza Residencial', status: 'Pendente', contratante: 'João Silva' },
+            { id: 2, servico: 'Encanamento', status: 'Em Andamento', contratante: 'Maria Oliveira' },
+            { id: 3, servico: 'Eletricista', status: 'Concluído', contratante: 'Carlos Souza' },
+        ];
+
+        var usuarioLogado = true;
+        var nomeUsuario = "Carlos";
+
+        function redirecionarServico() {
+            if (!verificarLogin()) return false;
+            var servicoSelecionado = document.getElementById('servicos').value;
+            window.location.href = servicoSelecionado;
+            return false;
+        }
+
+        function atualizarNavbar() {
+            var navbarContent = document.getElementById('navbar-content');
+            if (usuarioLogado) {
+                navbarContent.innerHTML = `
+                <li class="nav-item">
+                <a class="nav-link" href="cursos.html">Cursos</a>
+                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bem-vindo, ${nomeUsuario}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="minhaConta.html">Minha Conta</a>
+                            <a class="dropdown-item" href="faq.html">FAQ</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" onclick="logout()">Logout</a>
+                        </div>
+                    </li>
+                `;
+            } else {
+                navbarContent.innerHTML = '<li class="nav-item"><a class="nav-link" href="./login/login.html">Login</a></li><li class="nav-item"><a class="nav-link" href="./cadastro/cadastro.html">Cadastrar</a></li>';
+            }
+        }
+
+        function verificarLogin() {
+            if (!usuarioLogado) {
+                alert("Você precisa estar logado para buscar um serviço.");
+                return false;
+            }
+            return true;
+        }
+
+        function logout() {
+            usuarioLogado = false;
+            alert("Você foi deslogado.");
+            window.location.href = "./autenticacao/login.html";
+        }
+
+        function mostrarConversas() {
+            if (usuarioLogado) {
+                $('#conversasModal').modal('show');
+            } else {
+                alert("Você precisa estar logado para ver suas conversas.");
+            }
+        }
+
+        function abrirConversa(nome) {
+            $('#conversaEspecificaModalLabel').text('Conversa com ' + nome);
+            $('#conversaContent').html('<p>Iniciando conversa com ' + nome + '...</p>');
+            $('#conversasModal').modal('hide');
+            $('#conversaEspecificaModal').modal('show');
+        }
+
+        function enviarMensagem() {
+            var mensagem = $('#mensagemInput').val();
+            if (mensagem.trim() !== '') {
+                var novoConteudo = '<p><strong>Você:</strong> ' + mensagem + '</p>';
+                $('#conversaContent').append(novoConteudo);
+                $('#mensagemInput').val('');
+            }
+        }
+
+        function toggleSolicitacoes() {
+            const container = document.getElementById('solicitacoesContainer');
+            if (container.style.display === 'none' || container.style.display === '') {
+                container.style.display = 'block';
+                carregarSolicitacoes();
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        function carregarSolicitacoes() {
+            const lista = document.getElementById('solicitacoesLista');
+            lista.innerHTML = ''; // Limpar conteúdo anterior
+            solicitacoes.forEach(solicitacao => {
+                const item = document.createElement('div');
+                item.className = 'solicitacoes-item';
+                item.innerHTML = `
+                    <h6>Serviço: ${solicitacao.servico}</h6>
+                    <p>Contratante: ${solicitacao.contratante}</p>
+                    <p>Status: ${solicitacao.status}</p>
+                    <button class="btn btn-secondary btn-sm" onclick="acompanharSolicitacao(${solicitacao.id})">Acompanhar</button>
+                `;
+                lista.appendChild(item);
+            });
+        }
+
+        function acompanharSolicitacao(id) {
+            alert("Acompanhando solicitação ID: " + id);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            atualizarNavbar();
+        });
+    </script>
+</body>
+</html>

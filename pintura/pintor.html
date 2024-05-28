@@ -32,20 +32,47 @@
         .text-muted {
             color: #fff; 
         }
+        .service-provider {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .service-provider img {
+            border-radius: 50%;
+            margin-right: 15px;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .service-provider-info {
+            flex: 1;
+        }
+        .service-provider-info h5 {
+            margin: 0;
+            font-size: 1.25rem;
+            color: #025685;
+        }
+        .service-provider-info p {
+            margin: 0;
+            color: #555;
+        }
+        nav a img{
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar">
-    <a class="navbar-brand" href="index.html">
-        <img src="./imagem/logo.png" alt="Clean House Logo">
+    <a class="navbar-brand" href="../index.html">
+        <img src="../imagem/logo.png" alt="Clean House Logo">
     </a>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="login.html">Login</a>
+            <a class="nav-link" href="../minhaConta.html">Minha conta</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="cadastro.html">Cadastrar</a>
+            <a class="nav-link" onclick="logout()">Log Out</a>
         </li>
     </ul>
 </nav>
@@ -55,7 +82,7 @@
         <div class="col-md-8 mx-auto">
             <h1 class="text-center mb-5">Serviços de Pintura</h1>
             <div class="card mb-4">
-                <img src="https://source.unsplash.com/800x600/?painting" class="card-img-top" alt="Serviço de Pintura">
+                <img src="../imagem/pintor.jpg" class="card-img-top" alt="Serviço de Pintura">
                 <div class="card-body">
                     <h5 class="card-title">Pintura Residencial</h5>
                     <p class="card-text">Nossos pintores profissionais transformarão sua casa com cores vibrantes e acabamentos de alta qualidade. Utilizamos apenas tintas de qualidade para garantir um resultado duradouro e satisfatório.</p>
@@ -64,9 +91,16 @@
                     <a href="detalhesServicos.html" class="btn btn-primary">Comprar</a>
                     <p class="card-text"><small class="text-muted">Categoria: Pintura Residencial</small></p>
                 </div>
+                <div class="service-provider">
+                    <img src="../imagem/pessoaPintor.jpg" alt="Prestador de Serviço">
+                    <div class="service-provider-info">
+                        <h5>João Silva</h5>
+                        <p>Especialista em Pintura Residencial e Decorativa</p>
+                    </div>
+                </div>
             </div>
             <div class="card mb-4">
-                <img src="https://source.unsplash.com/800x600/?wallpainting" class="card-img-top" alt="Pintura de Parede">
+                <img src="../imagem/pinturaDecorativa.jpg" class="card-img-top" alt="Pintura de Parede">
                 <div class="card-body">
                     <h5 class="card-title">Pintura Decorativa</h5>
                     <p class="card-text">Oferecemos serviços de pintura decorativa para adicionar um toque artístico e personalizado aos seus espaços. Desde murais até técnicas especiais, nossos artistas podem criar o ambiente perfeito para você.</p>
@@ -75,13 +109,26 @@
                     <a href="login.html" class="btn btn-primary">Comprar</a>
                     <p class="card-text"><small class="text-muted">Categoria: Pintura Decorativa</small></p>
                 </div>
+                <div class="service-provider">
+                    <img src="../imagem/pintora.webp" alt="Prestador de Serviço">
+                    <div class="service-provider-info">
+                        <h5>Maria Oliveira</h5>
+                        <p>Artista Especializada em Pintura Decorativa</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function logout() {
+        usuarioLogado = false;
+        alert("Você foi deslogado.");
+        window.location.href = "../autenticacao/login.html";
+    }
+</script>
 </body>
 </html>
